@@ -82,3 +82,11 @@ O banco de dados utiliza as tabelas:
   ```
  ## GET /produtos
   ![ Organiza Comercial](./img/DER1.png)
+  ## GET /produtos/:id
+  ![ Organiza Comercial](./img/DER2%20-%20Copia.png)
+  ## POST /produtos 
+  ![ Organiza Comercial](./img/DER3.png)
+  ## PUT /produtos/:id 
+  ![ Organiza Comercial](./img/DER4.png)
+  ## DELETE /produtos/:id
+   ![ Organiza Comercial](./img/DER6.png)
