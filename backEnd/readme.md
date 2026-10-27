@@ -80,5 +80,5 @@ O banco de dados utiliza as tabelas:
  router.put("/produtos/:id", produtosControllers.atualizar);
  router.delete("/produtos/:id", produtosControllers.excluir);
   ```
-  ### GET /produtos
+  ## GET /produtos
   ![ Organiza Comercial](./img/DER1.png)
