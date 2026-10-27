@@ -75,9 +75,9 @@ O banco de dados utiliza as tabelas:
   ```bash
  Produtos: 
  router.get("/produtos", produtosControllers.buscarTodos);
- ![ Organiza Comercial](./img/DER1.png)
  router.get("/produtos/:id", produtosControllers.buscarPorId);
  router.post("/produtos", produtosControllers.criar);
  router.put("/produtos/:id", produtosControllers.atualizar);
  router.delete("/produtos/:id", produtosControllers.excluir);
   ```
+  ![ Organiza Comercial](./img/DER1.png)
