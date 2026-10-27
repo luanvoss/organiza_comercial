@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const produtosControllers = require("../controllers/produtosControllers");
+const produtosControllers = require("../constrollers/produtoController");
 
 router.get("/produtos", produtosControllers.buscarTodos);
 router.get("/produtos/:id", produtosControllers.buscarPorId);
