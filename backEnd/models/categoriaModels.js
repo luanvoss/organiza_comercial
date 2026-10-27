@@ -1,7 +1,7 @@
-const db = require("../config/db");
+const db = require("../config/database");
 
 const buscarTodos = async () => {
-    const [resultado] = await db.query("SELECT * FROM Categoria");
+    const [resultado] = await db.query("SELECT * FROM categoria");
     return resultado;
 };
 
@@ -16,7 +16,7 @@ const buscarPorId = async (id) => {
 
 const criar = async (categoria) => {
     const [resultado] = await db.query(
-        "INSERT INTO Categoria (Nome) VALUES (?)",
+        "INSERT INTO categoria (Nome) VALUES (?)",
         [categoria.Nome]
     );
 
@@ -25,7 +25,7 @@ const criar = async (categoria) => {
 
 const atualizar = async (id, categoria) => {
     const [resultado] = await db.query(
-        "UPDATE Categoria SET Nome = ? WHERE Id_Categoria = ?",
+        "UPDATE categoria SET Nome = ? WHERE Id_Categoria = ?",
         [categoria.Nome, id]
     );
 
@@ -34,7 +34,7 @@ const atualizar = async (id, categoria) => {
 
 const excluir = async (id) => {
     const [resultado] = await db.query(
-        "DELETE FROM Categoria WHERE Id_Categoria = ?",
+        "DELETE FROM categoria WHERE Id_Categoria = ?",
         [id]
     );
 

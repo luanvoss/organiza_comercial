@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const categoriaController = require("../constrollers/categoriaController");
+const categoriaController = require("../controllers/categoriaControllers");
 
 router.get("/categoria", categoriaController.buscarTodos);
 router.get("/categoria/:id", categoriaController.buscarPorId);

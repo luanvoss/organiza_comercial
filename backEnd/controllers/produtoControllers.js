@@ -1,5 +1,4 @@
-const produtoModel = require("../models/produtoModel");
-const classesModel = require("../models/classesModel");
+const produtoModel = require("../models/produtoModels");
 
 const buscarTodos = async (req, res) => {
     try {
@@ -26,16 +25,9 @@ const buscarPorId = async (req, res) => {
 
 const criar = async (req, res) => {
     try {
-        const produto = await produtoModel.criar(req.body);
-
-        await classesModel.criar(
-            produto.insertId,
-            req.body.Id_Categoria
-        );
-
-        res.status(201).json({
-            mensagem: "Produto cadastrado com sucesso"
-        });
+        const { Nome, Descricao, Preco, Quantidade_Estoque, Quantidade_Minima } = req.body;
+        const novoProduto = await produtoModel.criar(Nome, Descricao, Preco, Quantidade_Estoque, Quantidade_Minima);
+        res.status(201).json(novoProduto)
     } catch (erro) {
         res.status(500).json({ erro: "Erro ao cadastrar produto" });
     }
@@ -43,18 +35,29 @@ const criar = async (req, res) => {
 
 const atualizar = async (req, res) => {
     try {
-        const resultado = await produtoModel.atualizar(req.params.id, req.body);
-
-        if (resultado.affectedRows === 0) {
-            return res.status(404).json({ erro: "Produto não encontrado" });
+        const { id } = req.params.id;
+        const { Nome, Descricao, Preco, Quantidade_Estoque, Quantidade_Minima } = req.body;
+        if (!Nome || !Descricao || !Preco || !Quantidade_Estoque || !Quantidade_Minima) {
+            return res.status(400).json({
+                erro: "Nome, descrição, preço, quantidade de estoque, quantidade minima são obrigatórios."
+            });
         }
-
-        res.json({ mensagem: "Produto atualizado com sucesso" });
-    } catch (erro) {
-        res.status(500).json({ erro: "Erro ao atualizar produto" });
+        const produtoAtualizado = await produtoModel.atualizar(
+            id,
+            Nome, 
+            Descricao, 
+            Preco, 
+            Quantidade_Estoque, 
+            Quantidade_Minima
+        );
+        res.json(produtoAtualizado);
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            erro: "Erro ao atualizar produto."
+        });
     }
 };
-
 const excluir = async (req, res) => {
     try {
         const resultado = await produtoModel.excluir(req.params.id);

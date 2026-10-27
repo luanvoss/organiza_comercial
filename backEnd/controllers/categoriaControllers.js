@@ -1,4 +1,4 @@
-const categoriaModel = require("../models/categoriaModel");
+const categoriaModel = require("../models/categoriaModels");
 
 const buscarTodos = async (req, res) => {
     try {
