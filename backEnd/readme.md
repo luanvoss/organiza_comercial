@@ -65,16 +65,18 @@ O banco de dados utiliza as tabelas:
 
 7. Rotas da API 
  categoria:
+ ```bash
  router.get("/categoria", categoriaController.buscarTodos);
  router.get("/categoria/:id", categoriaController.buscarPorId);
  router.post("/categoria", categoriaController.criar);
  router.put("/categoria/:id", categoriaController.atualizar);
  router.delete("/categoria/:id", categoriaController.excluir);
-
+  ```
+  ```bash
  Produtos: 
  router.get("/produtos", produtosControllers.buscarTodos);
  router.get("/produtos/:id", produtosControllers.buscarPorId);
  router.post("/produtos", produtosControllers.criar);
  router.put("/produtos/:id", produtosControllers.atualizar);
  router.delete("/produtos/:id", produtosControllers.excluir);
- 
+  ```
